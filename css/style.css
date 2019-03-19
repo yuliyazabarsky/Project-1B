@@ -1,0 +1,15 @@
+/* Map */
+.map {
+    height: 50rem;
+    
+  }
+  
+  @media (max-width: 992px) {
+    .map {
+      height: 75%;
+    }
+  }
+  
+  .map iframe {
+    pointer-events: none;
+  }

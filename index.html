@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Brewery Map</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Bootswatch Styling for Improving the Aesthetics -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+
+  <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css">
+  <style>
+    .panel-body a {
+      word-break: break-all
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <!-- Main Bootstrap Search -->
+  <div class="container">
+
+    <!-- Jumbotron for Title -->
+    <div class="jumbotron" style="background-color: #20315A ; color: white;">
+      <h1 class="text-center"><strong><i class="fa fa-map-o"></i> Brewery Map</strong></h1>
+    </div>
+
+
+
+    <!-- Row for Searching New York Times -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+        <!-- First panel is for handling the search parameters -->
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i> Search Parameters</strong></h3>
+          </div>
+          <div class="panel-body">
+
+            <!-- Here we create an HTML Form for handling the inputs-->
+            <form role="form">
+
+              <!-- Here we create the text box for capturing the search term-->
+              <div class="form-group">
+                <label for="search">ZIP code</label>
+                <input type="text" class="form-control" id="zip-code-input">
+              </div>
+
+
+
+              <!-- Here we capture the Start Year Parameter-->
+              <div class="form-group">
+                <label for="startYear">City (Optional):</label>
+                <input type="text" class="form-control" id="city-input">
+              </div>
+
+              <!-- Here we capture the Start Year Parameter-->
+              <!-- <div class="form-group">
+                <label for="startYear">State (Optional):</label>
+                <input type="text" class="form-control" id="startYear">
+              </div> -->
+
+              <!-- Here we capture the number of records that the user wants to retrieve  -->
+              <div class="form-group">
+                  <label for="pwd">State</label>
+                  <select class="form-control" id="state-input">
+                      <option value="">Select</option>
+                      <option value="Alabama">Alabama</option>
+                      <option value="Alaska">Alaska</option>
+                      <option value="Arizona">Arizona</option>
+                      <option value="Arkansas">Arkansas</option>
+                      <option value="California">California</option>
+                      <option value="Colorado">Colorado</option>
+                      <option value="Cconnecticut">Connecticut</option>
+                      <option value="Delaware">Delaware</option>
+                      <option value="District_of_Columbia">District Of Columbia</option>
+                      <option value="Florida">Florida</option>
+                      <option value="Georgia">Georgia</option>
+                      <option value="Hawaii">Hawaii</option>
+                      <option value="Idaho">Idaho</option>
+                      <option value="Illinois">Illinois</option>
+                      <option value="Indiana">Indiana</option>
+                      <option value="Iowa">Iowa</option>
+                      <option value="Kansas">Kansas</option>
+                      <option value="Kentucky">Kentucky</option>
+                      <option value="Louisiana">Louisiana</option>
+                      <option value="Maine">Maine</option>
+                      <option value="Maryland">Maryland</option>
+                      <option value="Massachusetts">Massachusetts</option>
+                      <option value="Michigan">Michigan</option>
+                      <option value="Minnesota">Minnesota</option>
+                      <option value="Mississippi">Mississippi</option>
+                      <option value="Missouri">Missouri</option>
+                      <option value="Montana">Montana</option>
+                      <option value="Nebraska">Nebraska</option>
+                      <option value="Nevada">Nevada</option>
+                      <option value="New_Hampshire">New Hampshire</option>
+                      <option value="New_Jersey">New Jersey</option>
+                      <option value="New_Mexico">New Mexico</option>
+                      <option value="New_York">New York</option>
+                      <option value="North_Carolina">North Carolina</option>
+                      <option value="North_Dakota">North Dakota</option>
+                      <option value="Ohio">Ohio</option>
+                      <option value="Oklahoma">Oklahoma</option>
+                      <option value="Oregon">Oregon</option>
+                      <option value="Pennsylvania">Pennsylvania</option>
+                      <option value="Rhode_Island">Rhode Island</option>
+                      <option value="South_Carolina">South Carolina</option>
+                      <option value="South_Dakota">South Dakota</option>
+                      <option value="Tennessee">Tennessee</option>
+                      <option value="Texas">Texas</option>
+                      <option value="Utah">Utah</option>
+                      <option value="Vermont">Vermont</option>
+                      <option value="Virgina">Virginia</option>
+                      <option value="Washington">Washington</option>
+                      <option value="West_Virginia">West Virginia</option>
+                      <option value="Wisconsin">Wisconsin</option>
+                      <option value="Wyoming">Wyoming</option>
+                  </select>
+                </div>
+              <!-- Here we capture the number of records that the user wants to retrieve  -->
+              <div class="form-group">
+                <label for="pwd">Number of Records to Retrieve:</label>
+                <select class="form-control" id="numRecordsSelect">
+                  <option value=1>1</option>
+                  <!-- Setting the option for 5 as default -->
+                  <option value=5 selected>5</option>
+                  <option value=10>10</option>
+                </select>
+              </div>
+
+              <!-- Here we capture the End Year Parameter -->
+              <!-- <div class="form-group">
+					    <label for="endYear">End Year (Optional):</label>
+					    <input type="text" class="form-control" id="endYear">
+					  </div> -->
+
+              <!-- Here we have our final submit button -->
+              <button type="submit" class="btn btn-default" id="runSearch"><i class="fa fa-search"></i> Search</button>
+              <button type="button" class="btn btn-default" id="clearAll"><i class="fa fa-trash"></i> Clear
+                Results</button>
+
+
+            </form>
+            <!-- Map -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="map" style="width: 100%; height: 400px"></div>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+
+    <!-- <script>
+      var planes = [
+        ["Kokopelli", 39.8590102032, -105.064038586],
+      ];
+      var map = L.map('map').setView([39.8590102032, -105.064038586], 10);
+      mapLink =
+        '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+      L.tileLayer(
+        'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; ' + mapLink + ' Contributors',
+          maxZoom: 18,
+        }).addTo(map);
+      for (var i = 0; i < planes.length; i++) {
+        marker = new L.marker([planes[i][1], planes[i][2]])
+          .bindPopup(planes[i][0])
+          .addTo(map);
+      }
+    </script> -->
+
+    <!-- This row will handle all of the retrieved articles -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+
+        <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+        <div class="panel panel-primary">
+
+          <!-- Panel Heading for the retrieved articles box -->
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong><i class="fa fa-table"></i> Top Articles</strong></h3>
+          </div>
+
+          <!-- This main panel will hold each of the resulting articles -->
+          <div class="panel-body" id="wellSection">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Footer Region -->
+    <div class="row">
+      <div class="col-sm-12">
+
+        <!-- Line Break followed by closing -->
+        <hr>
+        <h5 class="text-center"><small>Copyright BR </small></h5>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- jQuery JS -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <!-- Code to the Javascript File -->
+  <script src="./javascript/app.js"></script>
+
+
+</body>
+
+</html>
