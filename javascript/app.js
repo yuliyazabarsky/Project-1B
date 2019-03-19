@@ -29,13 +29,13 @@ $("#runSearch").on("click", function (event) {
                 }
             }
             map(brewery);
-
         });
 
-        $("#zip-code-input").val("");
+        
         $("#city-input").val("");
         $("#state-input").val("");
-        $("#numRecordsSelect").val(5);
+       
+
 
 
     
@@ -46,8 +46,7 @@ $("#runSearch").on("click", function (event) {
 console.log(brewery);
 
 function map(cords) {
-    console.log(cords[1].latitude);
-    console.log(cords[1].longitude);
+    
     var map = L.map('map').setView([cords[1].latitude, cords[1].longitude], 10);
     mapLink =
         '<a href="http://openstreetmap.org">OpenStreetMap</a>';
@@ -68,3 +67,42 @@ function map(cords) {
         }
     }
 }
+
+// function updateResultsCards() {
+//     // no limit on results
+//     var numBreweries = $("#").val();
+
+//     console.log();
+//     console.log("------------------------------------");
+  
+//     // Loop through and build elements for the defined number of articles
+//     for (var i = 0; i < numArticles; i++) {
+//       // Get specific article info for current index
+//       var article = NYTData.response.docs[i];
+  
+//       // Increase the articleCount (track article # - starting at 1)
+//       var articleCount = i + 1;
+  
+//       // Create the  list group to contain the articles and add the article content for each
+//       var $articleList = $("<ul>");
+//       $articleList.addClass("list-group");
+  
+//       // Add the newly created element to the DOM
+//       $("#article-section").append($articleList);
+  
+//       // If the article has a headline, log and append to $articleList
+//       var headline = article.headline;
+//       var $articleListItem = $("<li class='list-group-item articleHeadline'>");
+  
+//       if (headline && headline.main) {
+//         console.log(headline.main);
+//         $articleListItem.append(
+//           "<span class='label label-primary'>" +
+//             articleCount +
+//             "</span>" +
+//             "<strong> " +
+//             headline.main +
+//             "</strong>"
+//         );
+//       }
+  
