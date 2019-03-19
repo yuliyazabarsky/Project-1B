@@ -25,15 +25,19 @@
 
 <body>
 
+  <!-- Jumbotron for Title -->
+  <div class="jumbotron" style="background-color: #20315A ; color: white;">
+    <h1 class="text-center"><strong><i class="fa fa-map-o"></i> Brewery Locator</strong></h1>
+  </div>
 
 
   <!-- Main Bootstrap Search -->
   <div class="container">
 
-    <!-- Jumbotron for Title -->
-    <div class="jumbotron" style="background-color: #20315A ; color: white;">
-      <h1 class="text-center"><strong><i class="fa fa-map-o"></i> Brewery Roulette</strong></h1>
-    </div>
+
+   
+
+ master
 
 
 
@@ -43,21 +47,17 @@
         <br>
         <!-- First panel is for handling the search parameters -->
         <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i> Search Locations</strong></h3>
+
+          <div class="panel-heading" style="background-color: grey">
+            <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i> Search Parameters</strong></h3>
+
           </div>
           <div class="panel-body">
 
             <!-- Here we create an HTML Form for handling the inputs-->
             <form role="form">
 
-              <!-- Here we create the text box for capturing the zip code-->
-              <div class="form-group">
-                <label for="search">ZIP Code:</label>
-                <input type="text" class="form-control" id="zip-code-input">
-              </div>
 
-              <!-- Here we capture the City-->
               <div class="form-group">
                 <label for="startYear">City:</label>
                 <input type="text" class="form-control" id="city-input">
@@ -65,72 +65,74 @@
 
               <!-- Here we have a list of states to choose from  -->
               <div class="form-group">
-                  <label for="pwd">State:</label>
-                  <select class="form-control" id="state-input">
-                      <option value="">Select</option>
-                      <option value="Alabama">Alabama</option>
-                      <option value="Alaska">Alaska</option>
-                      <option value="Arizona">Arizona</option>
-                      <option value="Arkansas">Arkansas</option>
-                      <option value="California">California</option>
-                      <option value="Colorado">Colorado</option>
-                      <option value="Cconnecticut">Connecticut</option>
-                      <option value="Delaware">Delaware</option>
-                      <option value="District_of_Columbia">District Of Columbia</option>
-                      <option value="Florida">Florida</option>
-                      <option value="Georgia">Georgia</option>
-                      <option value="Hawaii">Hawaii</option>
-                      <option value="Idaho">Idaho</option>
-                      <option value="Illinois">Illinois</option>
-                      <option value="Indiana">Indiana</option>
-                      <option value="Iowa">Iowa</option>
-                      <option value="Kansas">Kansas</option>
-                      <option value="Kentucky">Kentucky</option>
-                      <option value="Louisiana">Louisiana</option>
-                      <option value="Maine">Maine</option>
-                      <option value="Maryland">Maryland</option>
-                      <option value="Massachusetts">Massachusetts</option>
-                      <option value="Michigan">Michigan</option>
-                      <option value="Minnesota">Minnesota</option>
-                      <option value="Mississippi">Mississippi</option>
-                      <option value="Missouri">Missouri</option>
-                      <option value="Montana">Montana</option>
-                      <option value="Nebraska">Nebraska</option>
-                      <option value="Nevada">Nevada</option>
-                      <option value="New_Hampshire">New Hampshire</option>
-                      <option value="New_Jersey">New Jersey</option>
-                      <option value="New_Mexico">New Mexico</option>
-                      <option value="New_York">New York</option>
-                      <option value="North_Carolina">North Carolina</option>
-                      <option value="North_Dakota">North Dakota</option>
-                      <option value="Ohio">Ohio</option>
-                      <option value="Oklahoma">Oklahoma</option>
-                      <option value="Oregon">Oregon</option>
-                      <option value="Pennsylvania">Pennsylvania</option>
-                      <option value="Rhode_Island">Rhode Island</option>
-                      <option value="South_Carolina">South Carolina</option>
-                      <option value="South_Dakota">South Dakota</option>
-                      <option value="Tennessee">Tennessee</option>
-                      <option value="Texas">Texas</option>
-                      <option value="Utah">Utah</option>
-                      <option value="Vermont">Vermont</option>
-                      <option value="Virgina">Virginia</option>
-                      <option value="Washington">Washington</option>
-                      <option value="West_Virginia">West Virginia</option>
-                      <option value="Wisconsin">Wisconsin</option>
-                      <option value="Wyoming">Wyoming</option>
-                  </select>
-                </div>
-              <!-- Here we capture the number of results that the user wants to retrieve  -->
-              <div class="form-group">
-                <label for="pwd">Number of Results:</label>
-                <select class="form-control" id="numRecordsSelect">
-                  <option value=1>1</option>
-                  <!-- Setting the option for 5 as default -->
-                  <option value=5 selected>5</option>
-                  <option value=10>10</option>
+
+                <label for="pwd">State</label>
+                <select class="form-control" id="state-input">
+                  <option value="">Select</option>
+                  <option value="Alabama">Alabama</option>
+                  <option value="Alaska">Alaska</option>
+                  <option value="Arizona">Arizona</option>
+                  <option value="Arkansas">Arkansas</option>
+                  <option value="California">California</option>
+                  <option value="Colorado">Colorado</option>
+                  <option value="Cconnecticut">Connecticut</option>
+                  <option value="Delaware">Delaware</option>
+                  <option value="District_of_Columbia">District Of Columbia</option>
+                  <option value="Florida">Florida</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Hawaii">Hawaii</option>
+                  <option value="Idaho">Idaho</option>
+                  <option value="Illinois">Illinois</option>
+                  <option value="Indiana">Indiana</option>
+                  <option value="Iowa">Iowa</option>
+                  <option value="Kansas">Kansas</option>
+                  <option value="Kentucky">Kentucky</option>
+                  <option value="Louisiana">Louisiana</option>
+                  <option value="Maine">Maine</option>
+                  <option value="Maryland">Maryland</option>
+                  <option value="Massachusetts">Massachusetts</option>
+                  <option value="Michigan">Michigan</option>
+                  <option value="Minnesota">Minnesota</option>
+                  <option value="Mississippi">Mississippi</option>
+                  <option value="Missouri">Missouri</option>
+                  <option value="Montana">Montana</option>
+                  <option value="Nebraska">Nebraska</option>
+                  <option value="Nevada">Nevada</option>
+                  <option value="New_Hampshire">New Hampshire</option>
+                  <option value="New_Jersey">New Jersey</option>
+                  <option value="New_Mexico">New Mexico</option>
+                  <option value="New_York">New York</option>
+                  <option value="North_Carolina">North Carolina</option>
+                  <option value="North_Dakota">North Dakota</option>
+                  <option value="Ohio">Ohio</option>
+                  <option value="Oklahoma">Oklahoma</option>
+                  <option value="Oregon">Oregon</option>
+                  <option value="Pennsylvania">Pennsylvania</option>
+                  <option value="Rhode_Island">Rhode Island</option>
+                  <option value="South_Carolina">South Carolina</option>
+                  <option value="South_Dakota">South Dakota</option>
+                  <option value="Tennessee">Tennessee</option>
+                  <option value="Texas">Texas</option>
+                  <option value="Utah">Utah</option>
+                  <option value="Vermont">Vermont</option>
+                  <option value="Virgina">Virginia</option>
+                  <option value="Washington">Washington</option>
+                  <option value="West_Virginia">West Virginia</option>
+                  <option value="Wisconsin">Wisconsin</option>
+                  <option value="Wyoming">Wyoming</option>
                 </select>
               </div>
+              <!-- Here we capture the number of records that the user wants to retrieve  -->
+              <!-- <div class="form-group">
+                <label for="pwd">Number of Records to Retrieve:</label>
+master
+                <select class="form-control" id="numRecordsSelect">
+                  <option value=1>1</option>
+                   Setting the option for 5 as default -->
+                  <!-- <option value=5 selected>5</option>
+                  <option value=10>10</option>
+                </select>
+              </div> --> 
 
               <!-- Here we have our final submit button -->
               <button type="submit" class="btn btn-default" id="runSearch"><i class="fa fa-search"></i> Search</button>
@@ -141,7 +143,7 @@
 
 
             </form>
-            
+
 
           </div>
         </div>
@@ -154,7 +156,7 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
     </script>
 
-  
+
 
     <!-- This row will handle all of the results -->
     <div class="row">
@@ -167,6 +169,7 @@
           <!-- Panel Heading for the retrieved articles box -->
           <div class="panel-heading">
             <h3 class="panel-title"><strong><i ></i> Results</strong></h3>
+ master
           </div>
 
           <!-- This main panel will hold each of the resulting articles -->
