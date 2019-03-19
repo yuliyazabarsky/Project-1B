@@ -65,7 +65,7 @@ var planes = [
 
 
 function map(cords) {
-    var map = L.map('map').setView([39.8590102032, -105.064038586], 10);
+    var map = L.map('map').setView([39.8590102032, -105.064038586], 12);
     mapLink =
         '<a href="http://openstreetmap.org">OpenStreetMap</a>';
     L.tileLayer(
