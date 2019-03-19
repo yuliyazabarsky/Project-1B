@@ -3,6 +3,7 @@ var brewery = []
 $("#runSearch").on("click", function (event) {
     event.preventDefault();
 
+
     var zip = $("#zip-code-input").val();
     var city = $("#city-input").val();
     var state = $("#state-input").val();
@@ -14,11 +15,11 @@ $("#runSearch").on("click", function (event) {
 
 
 
-    // var movie = $(this).attr("data-name");
+
 
     var queryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city + "&by_state=" + state + "&per_page=" +
         numRecords + "";
-    // var queryURL = "https://api.openbrewerydb.org/breweries?by_postal_code=" + zip + "&per_page=30";
+
     // Creates AJAX call for the specific movie button being clicked
     $.ajax({
         url: queryURL,
@@ -153,6 +154,41 @@ function map(cords) {
 //   }
 //   // Enable map zooming with mouse scroll when the user clicks the map
 //   $('.map').on('click', onMapClickHandler);
+// function updateResultsCards() {
+//     // no limit on results
+//     var numBreweries = $("#").val();
 
-
-
+//     console.log();
+//     console.log("------------------------------------");
+  
+//     // Loop through and build elements for the defined number of articles
+//     for (var i = 0; i < numArticles; i++) {
+//       // Get specific article info for current index
+//       var article = NYTData.response.docs[i];
+  
+//       // Increase the articleCount (track article # - starting at 1)
+//       var articleCount = i + 1;
+  
+//       // Create the  list group to contain the articles and add the article content for each
+//       var $articleList = $("<ul>");
+//       $articleList.addClass("list-group");
+  
+//       // Add the newly created element to the DOM
+//       $("#article-section").append($articleList);
+  
+//       // If the article has a headline, log and append to $articleList
+//       var headline = article.headline;
+//       var $articleListItem = $("<li class='list-group-item articleHeadline'>");
+  
+//       if (headline && headline.main) {
+//         console.log(headline.main);
+//         $articleListItem.append(
+//           "<span class='label label-primary'>" +
+//             articleCount +
+//             "</span>" +
+//             "<strong> " +
+//             headline.main +
+//             "</strong>"
+//         );
+//       }
+  
