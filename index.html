@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <title>Brewery Map</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- Bootswatch Styling for Improving the Aesthetics -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
   <!-- Font Awesome CSS Icons (For cool glyphicons) -->
@@ -24,8 +24,8 @@
 
 
   <!-- Jumbotron for Title -->
-  <div class="jumbotron" style="background-color: #20315A ; color: white;">
-    <h1 class="text-center"><strong><i class="fa fa-map-o"></i> Brewery Locator</strong></h1>
+  <div class="jumbotron" style="background-color: #20315A ; color:gold;">
+    <h1 class="text-center page-title"><i class="fa fa-beer" id="mug"></i> Brewery Roulette  </h1>
   </div>
 
 
@@ -33,7 +33,7 @@
   <div class="container">
 
 
-   
+
 
 
 
@@ -47,7 +47,7 @@
         <div class="panel panel-primary">
 
           <div class="panel-heading" style="background-color: grey">
-            <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i> Search Parameters</strong></h3>
+            <h3 class="panel-title"><strong><i class="fa fa-beer" id="mug"></i> Search Parameters</strong></h3>
 
           </div>
           <div class="panel-body">
@@ -135,76 +135,74 @@
               </div> -->
 
 
-              </div> --> 
 
-              <!-- Here we have our final submit button -->
-              <button type="submit" class="btn btn-default" id="runSearch"><i class="fa fa-search"></i> Search</button>
+          <!-- Here we have our final submit button -->
+          <button type="submit" class="btn btn-default" id="runSearch"><i class="fa fa-search"></i> Search</button>
 
-              <!-- Here is clear results button -->
-              <button type="button" class="btn btn-default" id="clearAll"><i class="fa fa-trash"></i> Clear
-                Results</button>
-            </form>
+          <!-- Here is clear results button -->
+          <button type="button" class="btn btn-default" id="clearAll"><i class="fa fa-trash"></i> Clear Results</button>
+          </form>
 
 
 
-          </div>
         </div>
       </div>
     </div>
-    <div id="map" style="width: 100%; height: 400px"></div>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
-    </script>
+  </div>
+
+  <div id="map" style="width: 100%; height: 400px"></div>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+  </script>
 
 
 
 
-    <!-- This row will handle all of the results -->
-    <div class="row">
-      <div class="col-sm-12">
-        <br>
+  <!-- This row will handle all of the results -->
+  <div class="row">
+    <div class="col-sm-12">
+      <br>
 
-        <!--This panel will initially be made up of a panel and wells for each of the articles retrieved-->
-        <div class="panel panel-primary">
+      <!--This panel will initially be made up of a panel and wells for each of the articles retrieved-->
+      <div class="panel panel-primary">
 
-          <!-- Panel Heading for the retrieved articles box -->
-          <div class="panel-heading">
-            <h3 class="panel-title"><strong><i ></i> Results</strong></h3>
-          </div>
+        <!-- Panel Heading for the retrieved articles box -->
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong><i class="fa fa-beer" id="mug"></i> Results</strong></h3>
+        </div>
 
-          <div class="panel-body" id="wellSection">
-          </div>
 
-          <!-- This main panel will hold each of the resulting articles -->
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="card">
-                    <div class="card-body text-center">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text">address</p>
-                      <a href="#" class="btn btn-primary">Go to website</a>
-                    </div>
+        <!-- This main panel will hold each of the resulting articles -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">address</p>
+                    <a href="#" class="btn btn-primary">Go to website</a>
+
                   </div>
                 </div>
-                <div class="col-sm-4">
-                  <div class="card">
-                    <div class="card-body text-center">
-                      <h5 class="card-title">name</h5>
-                      <p class="card-text">address</p>
-                      <a href="#" class="btn btn-primary">Go to website</a>
-                    </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">name</h5>
+                    <p class="card-text">address</p>
+                    <a href="#" class="btn btn-primary">Go to website</a>
                   </div>
                 </div>
-                <div class="col-sm-4">
-                  <div class="card text-center">
-                    <div class="card-body">
-                      <h5 class="card-title">name</h5>
-                      <p class="card-text">address</p>
-                      <a href="#" class="btn btn-primary">Go to website</a>
-                    </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">name</h5>
+                    <p class="card-text">address</p>
+                    <a href="#" class="btn btn-primary">Go to website</a>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
           <br>
