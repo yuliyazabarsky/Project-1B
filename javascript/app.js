@@ -153,6 +153,3 @@ function map(cords) {
 //   }
 //   // Enable map zooming with mouse scroll when the user clicks the map
 //   $('.map').on('click', onMapClickHandler);
-
-
-
