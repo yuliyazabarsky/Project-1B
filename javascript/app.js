@@ -3,6 +3,7 @@ var brewery = []
 $("#runSearch").on("click", function (event) {
     event.preventDefault();
 
+
     var zip = $("#zip-code-input").val();
     var city = $("#city-input").val();
     var state = $("#state-input").val();
@@ -14,11 +15,11 @@ $("#runSearch").on("click", function (event) {
 
 
 
-    // var movie = $(this).attr("data-name");
+
 
     var queryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city + "&by_state=" + state + "&per_page=" +
         numRecords + "";
-    // var queryURL = "https://api.openbrewerydb.org/breweries?by_postal_code=" + zip + "&per_page=30";
+
     // Creates AJAX call for the specific movie button being clicked
     $.ajax({
         url: queryURL,
@@ -65,7 +66,7 @@ var planes = [
 
 
 function map(cords) {
-    var map = L.map('map').setView([39.8590102032, -105.064038586], 10);
+    var map = L.map('map').setView([39.8590102032, -105.064038586], 12);
     mapLink =
         '<a href="http://openstreetmap.org">OpenStreetMap</a>';
     L.tileLayer(
@@ -153,6 +154,3 @@ function map(cords) {
 //   }
 //   // Enable map zooming with mouse scroll when the user clicks the map
 //   $('.map').on('click', onMapClickHandler);
-
-
-
