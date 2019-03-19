@@ -2,7 +2,7 @@ var brewery = []
 
 $("#runSearch").on("click", function (event) {
     event.preventDefault();
-
+    $("#myModal").modal()
     var zip = $("#zip-code-input").val();
     var city = $("#city-input").val();
     var state = $("#state-input").val();
@@ -14,11 +14,11 @@ $("#runSearch").on("click", function (event) {
 
 
 
-    // var movie = $(this).attr("data-name");
+
 
     var queryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city + "&by_state=" + state + "&per_page=" +
         numRecords + "";
-    // var queryURL = "https://api.openbrewerydb.org/breweries?by_postal_code=" + zip + "&per_page=30";
+
     // Creates AJAX call for the specific movie button being clicked
     $.ajax({
         url: queryURL,
