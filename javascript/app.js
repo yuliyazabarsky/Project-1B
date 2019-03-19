@@ -2,7 +2,8 @@ var brewery = []
 
 $("#runSearch").on("click", function (event) {
     event.preventDefault();
-    $("#myModal").modal()
+
+
     var zip = $("#zip-code-input").val();
     var city = $("#city-input").val();
     var state = $("#state-input").val();
