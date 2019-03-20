@@ -6,8 +6,8 @@ var config = {
     projectId: "project-1-e4560",
     storageBucket: "project-1-e4560.appspot.com",
     messagingSenderId: "687959041368"
-
   }; 
+
   firebase.initializeApp(config);
   
   var database = firebase.database();
@@ -16,7 +16,13 @@ var config = {
   var state = "";
 
 
-var brewery = []
+
+var database = firebase.database();
+
+var searchRef = database.ref("/searches");
+
+
+var brewery = [];
 
 $("#runSearch").on("click", function (event) {
     event.preventDefault();
@@ -24,6 +30,7 @@ $("#runSearch").on("click", function (event) {
 
     city = $("#city-input").val().trim();
     state = $("#state-input").val().trim();
+
     var modal = 0;
 
     database.ref().push({
@@ -98,26 +105,32 @@ $("#runSearch").on("click", function (event) {
     }).then(function (response) {
         for (var i = 0; i < response.length; i++) {
 
-            // console.log(response[i]);
-
-
             if (response[i].latitude && response[i].longitude) {
                 brewery.push(response[i]);
             }
         }
-        map(brewery);
+        runMap(brewery);
+        // removeMarkers()
         outputRows(brewery);
+        brewery = [];
+        console.log(brewery);
+
     });
 
-    $("#city-input").val("");
-    $("#state-input").val("");
+    // alert("alert");
+    // $("#city-input").val("");
+    // $("#state-input").val("");
 
 });
 
+$("#clearAll").on("click", function () {
+    $("#city-input").val("");
+    $("#state-input").val("");
+});
 
-// console.log(brewery);
 
 function outputRows(breweries) {
+    $("#cards").empty();
     for (var i = 0; i < breweries.length; i++) {
 
 
@@ -135,7 +148,6 @@ function outputRows(breweries) {
                         $('<h5 class="card-text">').text(address),
                         $('<h5 class="card-text">').text(phoneNumber),
                         $('<a class="btn btn-primary">').text("Go to website").attr('href', website ).attr("target",'_blank')
-
                     )
                 )
             )
@@ -144,11 +156,26 @@ function outputRows(breweries) {
 }
 
 
-function map(cords) {
 
-    var map = L.map('map').setView([cords[1].latitude, cords[1].longitude], 11);
+var map = new L.Map("map", {
+    center: [39.7392, -104.9903],
+    zoom: 11
+});
+// map.setView(, 11);
 
+mapLink =
+    '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+L.tileLayer(
+    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; ' + mapLink + ' Contributors',
+        maxZoom: 18,
+    }).addTo(map);
+var markers;
 
+function runMap(cords) {
+
+    // map.removeLayer(markers);
+    map = map.setView([cords[1].latitude, cords[1].longitude], 11);
     mapLink =
         '<a href="http://openstreetmap.org">OpenStreetMap</a>';
     L.tileLayer(
@@ -160,16 +187,19 @@ function map(cords) {
         if (!cords[i].longitude || !cords[i].latitude) {
             i++;
         } else {
-            // console.log(cords[i].latitude);
-            // console.log(cords[i].longitude);
-            marker = new L.marker([cords[i].latitude, cords[i].longitude])
+            marker = new L.Marker([cords[i].latitude, cords[i].longitude])
                 .bindPopup(cords[i].name + "<br>" + cords[i].street)
-                .addTo(map)
+            // .addTo(map)
+            markers = L.layerGroup([marker]).addTo(map)
         }
     }
 
 }
 
+
+function removeMarkers() {
+    markers.clearLayers();
+  
   // Firebase watcher + initial loader 
   database.ref().on("child_added", function(childSnapshot) {
 
@@ -191,4 +221,5 @@ function map(cords) {
         )    
     
 });
+
 
