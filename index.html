@@ -18,9 +18,9 @@
       word-break: break-all
     }
   </style>
-  
-    <!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 
   <!-- Jumbotron for Title -->
   <div class="jumbotron" style="background-color: #20315A ; color:gold;">
-    <h1 class="text-center page-title"><i class="fa fa-beer" id="mug"></i> Brewery Roulette  </h1>
+    <h1 class="text-center page-title"><i class="fa fa-beer" id="mug"></i> Brewery Roulette </h1>
   </div>
 
 
@@ -169,123 +169,70 @@
 
             </form>
 
-
-          <!-- Here we have our final submit button -->
-          <button type="submit" class="btn btn-default" id="runSearch"><i class="fa fa-search"></i> Search</button>
-
-
-          <!-- Here is clear results button -->
-          <button type="button" class="btn btn-default" id="clearAll"><i class="fa fa-trash"></i> Clear Results</button>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div id="map" style="width: 100%; height: 400px"></div>
-  <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
-  </script>
+    <div id="map" style="width: 100%; height: 400px"></div>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
 
 
-  <!-- This row will handle all of the results -->
-  <div class="row">
-    <div class="col-sm-12">
-      <br>
+    <!-- This row will handle all of the results -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
 
-      <!--This panel will initially be made up of a panel and wells for each of the articles retrieved-->
-      <div class="panel panel-primary">
-
-        <!-- Panel Heading for the retrieved articles box -->
-        <div class="panel-heading">
-          <h3 class="panel-title"><strong><i class="fa fa-beer" id="mug"></i> Results</strong></h3>
-        </div>
-
+        <!--This panel will initially be made up of a panel and wells for each of the articles retrieved-->
+        <div class="panel panel-primary">
 
           <!-- Panel Heading for the retrieved articles box -->
           <div class="panel-heading">
-            <h3 class="panel-title"><strong><i></i> Results</strong></h3>
+            <h3 class="panel-title"><strong><i class="fa fa-beer" id="mug"></i> Results</strong></h3>
           </div>
 
-          <!-- This main panel will hold each of the resulting articles -->
-          <div class="row">
-            <div class="col-lg-12">
+         
+              <!-- This main panel will hold each of the resulting articles -->
               <div class="row">
-                <div class="col-sm-4">
-                  <div class="card">
-                    <div class="card-body text-center">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text">address</p>
-                      <a href="#" class="btn btn-primary">Go to website</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="card">
-                    <div class="card-body text-center">
-                      <h5 class="card-title">name</h5>
-                      <p class="card-text">address</p>
-                      <a href="#" class="btn btn-primary">Go to website</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="card text-center">
-                    <div class="card-body">
-                      <h5 class="card-title">name</h5>
-                      <p class="card-text">address</p>
-                      <a href="#" class="btn btn-primary">Go to website</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <div class="col-lg-12">
+                  <div class="row" id="cards">
 
-        <!-- This main panel will hold each of the resulting articles -->
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="row" id="cards">
-
-              <!-- keeping this as template for cards -->
-              <!-- <div class="col-sm-4">
+                    <!-- keeping this as template for cards -->
+                    <!-- <div class="col-sm-4">
                 <div class="card">
                   <div class="card-body text-center">
                     <h5 class="card-title"></h5>
                     <p class="card-text">address</p>
                     <a href="#" class="btn btn-primary">Go to website</a> -->
 
+                  </div>
+                  <br>
+                </div>
+              </div>
+
+
             </div>
-            <br>
-          </div>
-        </div>
-
-
-      </div>
 
 
 
-
-      <!-- Footer Region -->
-      <div class="row">
-        <div class="col-sm-12">
-
-      </div>
-    </div>
-    
-    <!-- Footer Region -->
-    <div class="row">
-      <div class="col-sm-12">
+            <!-- Footer Region -->
+            <div class="row">
+              <div class="col-sm-12">
 
 
-          <!-- Line Break followed by closing -->
-          <hr>
-          <h5 class="text-center"><small>Brewery Roulette </small></h5>
+                <!-- Line Break followed by closing -->
+                <hr>
+                <h5 class="text-center"><small>Brewery Roulette </small></h5>
 
 
-        </div>
-      </div>
-      <!-- jQuery JS -->
-      <script src="https://code.jquery.com/jquery.js"></script>
-      <!-- Code to the Javascript File -->
-      <script src="./javascript/app.js"></script>
+              </div>
+            </div>
+            <!-- jQuery JS -->
+            <script src="https://code.jquery.com/jquery.js"></script>
+            <!-- Code to the Javascript File -->
+            <script src="./javascript/app.js"></script>
 </body>
 
 </html>
