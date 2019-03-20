@@ -6,19 +6,18 @@ var config = {
     projectId: "project-1-e4560",
     storageBucket: "project-1-e4560.appspot.com",
     messagingSenderId: "687959041368"
-  };
-  firebase.initializeApp(config);
-  
-  var database = firebase.database();
-  
-  var searchRef = database.ref("/searches");
-  
+};
+firebase.initializeApp(config);
 
-var brewery = []
+var database = firebase.database();
+
+var searchRef = database.ref("/searches");
+
+
+var brewery = [];
 
 $("#runSearch").on("click", function (event) {
     event.preventDefault();
-
 
     var city = $("#city-input").val();
     var state = $("#state-input").val();
@@ -89,27 +88,33 @@ $("#runSearch").on("click", function (event) {
         method: "GET"
     }).then(function (response) {
         for (var i = 0; i < response.length; i++) {
+            console.log(response[i]);
+            if (response[i].latitude && response[i].longitude) {
+                brewery.push(response[i]);
+            }
+        }
+        runMap(brewery);
+        // removeMarkers()
+        outputRows(brewery);
+        brewery = [];
+        console.log(brewery);
 
-            // console.log(response[i]);
+    });
 
-
-    //         if (response[i].latitude && response[i].longitude) {                
-    //             brewery.push(response[i]);
-    //         } 
-    //     }
-    //     map(brewery);
-    //     outputRows(brewery);
-    // });
-
+    // alert("alert");
     // $("#city-input").val("");
     // $("#state-input").val("");
 
 });
 
+$("#clearAll").on("click", function () {
+    $("#city-input").val("");
+    $("#state-input").val("");
+});
 
-console.log(brewery);
 
 function outputRows(breweries) {
+    $("#cards").empty();
     for (var i = 0; i < breweries.length; i++) {
 
 
@@ -124,6 +129,7 @@ function outputRows(breweries) {
                     $('<div class="card-body text-center">').append(
                         $('<h5 class="card-title">').text(name),
                         $('<p class="card-text">').text(address),
+                        $('<p class="card-text">').text("Phone: " + phoneNumber),
                         $('<a class="btn btn-primary">').text("Go to website").attr('href', website)
                     )
                 )
@@ -137,13 +143,25 @@ function outputRows(breweries) {
 
 
 
+var map = new L.Map("map", {
+    center: [39.7392, -104.9903],
+    zoom: 11
+});
+// map.setView(, 11);
 
+mapLink =
+    '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+L.tileLayer(
+    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; ' + mapLink + ' Contributors',
+        maxZoom: 18,
+    }).addTo(map);
+var markers;
 
-function map(cords) {
+function runMap(cords) {
 
-    var map = L.map('map').setView([cords[1].latitude, cords[1].longitude], 11);
-
-
+    // map.removeLayer(markers);
+    map = map.setView([cords[1].latitude, cords[1].longitude], 11);
     mapLink =
         '<a href="http://openstreetmap.org">OpenStreetMap</a>';
     L.tileLayer(
@@ -155,12 +173,14 @@ function map(cords) {
         if (!cords[i].longitude || !cords[i].latitude) {
             i++;
         } else {
-            // console.log(cords[i].latitude);
-            // console.log(cords[i].longitude);
-            marker = new L.marker([cords[i].latitude, cords[i].longitude])
+            marker = new L.Marker([cords[i].latitude, cords[i].longitude])
                 .bindPopup(cords[i].name + "<br>" + cords[i].street)
-                .addTo(map)
+            // .addTo(map)
+            markers = L.layerGroup([marker]).addTo(map)
         }
     }
 }
 
+function removeMarkers() {
+    markers.clearLayers();
+}
