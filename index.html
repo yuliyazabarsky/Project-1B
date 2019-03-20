@@ -33,7 +33,7 @@
   <div class="container">
 
 
-   
+
 
 
 
@@ -135,14 +135,39 @@
               </div> -->
 
 
-              </div> --> 
+
 
               <!-- Here we have our final submit button -->
-              <button type="submit" class="btn btn-default" id="runSearch"><i class="fa fa-search"></i> Search</button>
+              <button type="submit" class="btn btn-default" id="runSearch"><i class="fa fa-search"></i> Search
+
+              </button>
+
+              <!-- Modal -->
+              <div id="myCityModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p>Enter City</p>
+                </div>
+
+              </div>
+              <div id="myStateModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p>Enter State</p>
+                </div>
+
+              </div>
 
               <!-- Here is clear results button -->
               <button type="button" class="btn btn-default" id="clearAll"><i class="fa fa-trash"></i> Clear
                 Results</button>
+
+
+
             </form>
 
 
@@ -168,7 +193,7 @@
 
           <!-- Panel Heading for the retrieved articles box -->
           <div class="panel-heading">
-            <h3 class="panel-title"><strong><i ></i> Results</strong></h3>
+            <h3 class="panel-title"><strong><i></i> Results</strong></h3>
           </div>
 
           <!-- This main panel will hold each of the resulting articles -->
@@ -202,32 +227,32 @@
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
+            <br>
           </div>
-          <br>
+        </div>
+
+      </div>
+
+
+
+
+      <!-- Footer Region -->
+      <div class="row">
+        <div class="col-sm-12">
+
+          <!-- Line Break followed by closing -->
+          <hr>
+          <h5 class="text-center"><small>Brewery Roulette </small></h5>
+
+
         </div>
       </div>
-
-    </div>
-
-
-
-
-    <!-- Footer Region -->
-    <div class="row">
-      <div class="col-sm-12">
-
-        <!-- Line Break followed by closing -->
-        <hr>
-        <h5 class="text-center"><small>Brewery Roulette </small></h5>
-
-
-      </div>
-    </div>
-    <!-- jQuery JS -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Code to the Javascript File -->
-    <script src="./javascript/app.js"></script>
+      <!-- jQuery JS -->
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <!-- Code to the Javascript File -->
+      <script src="./javascript/app.js"></script>
 </body>
 
 </html>
