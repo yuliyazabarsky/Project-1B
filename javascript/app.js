@@ -11,7 +11,8 @@ var config = {
   
   var database = firebase.database();
   
-  var searchRef = database.ref("/searches");
+  var city = "";
+  var state = "";
   
 
 var brewery = []
@@ -20,9 +21,14 @@ $("#runSearch").on("click", function (event) {
     event.preventDefault();
 
 
-    var city = $("#city-input").val();
-    var state = $("#state-input").val();
+    city = $("#city-input").val();
+    state = $("#state-input").val();
     var modal = 0;
+
+    database.ref().push({
+        city: city,
+        state: state
+    })
 
     // validateForm
     var y = $("#city-input").val();
