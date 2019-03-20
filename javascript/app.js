@@ -6,14 +6,14 @@ var config = {
     projectId: "project-1-e4560",
     storageBucket: "project-1-e4560.appspot.com",
     messagingSenderId: "687959041368"
-  };
-  firebase.initializeApp(config);
-  
-  var database = firebase.database();
-  
-  var city = "";
-  var state = "";
-  
+};
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
+var city = "";
+var state = "";
+
 
 var brewery = []
 
@@ -21,8 +21,8 @@ $("#runSearch").on("click", function (event) {
     event.preventDefault();
 
 
-    city = $("#city-input").val();
-    state = $("#state-input").val();
+    city = $("#city-input").val().trim();
+    state = $("#state-input").val().trim();
     var modal = 0;
 
     database.ref().push({
@@ -99,9 +99,9 @@ $("#runSearch").on("click", function (event) {
             // console.log(response[i]);
 
 
-            if (response[i].latitude && response[i].longitude) {                
+            if (response[i].latitude && response[i].longitude) {
                 brewery.push(response[i]);
-            } 
+            }
         }
         map(brewery);
         outputRows(brewery);
@@ -130,7 +130,7 @@ function outputRows(breweries) {
                     $('<div class="card-body text-center">').append(
                         $('<h5 class="card-title">').text(name),
                         $('<p class="card-text">').text(address),
-                        $('<a class="btn btn-primary">').text("Go to website").attr('href', website ).attr("target",'_blank')
+                        $('<a class="btn btn-primary">').text("Go to website").attr('href', website).attr("target", '_blank')
                     )
                 )
             )
@@ -169,4 +169,3 @@ function map(cords) {
         }
     }
 }
-
