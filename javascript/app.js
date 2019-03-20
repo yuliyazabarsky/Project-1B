@@ -109,16 +109,16 @@ $("#runSearch").on("click", function (event) {
 
 
 
-            if (response[i].latitude && response[i].longitude) {                
-                brewery.push(response[i]);
-            } 
-        }
-        map(brewery);
-        outputRows(brewery);
-    });
+    //         if (response[i].latitude && response[i].longitude) {                
+    //             brewery.push(response[i]);
+    //         } 
+    //     }
+    //     map(brewery);
+    //     outputRows(brewery);
+    // });
 
-    $("#city-input").val("");
-    $("#state-input").val("");
+    // $("#city-input").val("");
+    // $("#state-input").val("");
 
 });
 
@@ -157,7 +157,7 @@ function outputRows(breweries) {
 
 function map(cords) {
 
-    var map = L.map('map').setView([cords[1].latitude, cords[1].longitude], 10);
+    var map = L.map('map').setView([cords[1].latitude, cords[1].longitude], 11);
 
 
     mapLink =
