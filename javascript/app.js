@@ -6,7 +6,7 @@ var config = {
     projectId: "project-1-e4560",
     storageBucket: "project-1-e4560.appspot.com",
     messagingSenderId: "687959041368"
-  }; o
+  }; 
   firebase.initializeApp(config);
   
   var database = firebase.database();
@@ -27,7 +27,8 @@ $("#runSearch").on("click", function (event) {
 
     database.ref().push({
         city: city,
-        state: state
+        state: state,
+        timeAdded: firebase.database.ServerValue.TIMESTAMP
     })
 
     // validateForm
@@ -113,7 +114,7 @@ $("#runSearch").on("click", function (event) {
 });
 
 
-console.log(brewery);
+// console.log(brewery);
 
 function outputRows(breweries) {
     for (var i = 0; i < breweries.length; i++) {
@@ -128,21 +129,16 @@ function outputRows(breweries) {
             $('<div class="col-sm-4">').append(
                 $('<div class="card">').append(
                     $('<div class="card-body text-center">').append(
-                        $('<h5 class="card-title">').text(name),
-                        $('<p class="card-text">').text(address),
+                        $('<h4 class="card-title">').text(name),
+                        $('<h5 class="card-text">').text(address),
+                        $('<h5 class="card-text">').text(phoneNumber),
                         $('<a class="btn btn-primary">').text("Go to website").attr('href', website ).attr("target",'_blank')
                     )
                 )
             )
         )
-
-        // var cardContainer = $("<div>").addClass("col-sm-4");
-        // var 
     }
 }
-
-
-
 
 
 function map(cords) {
@@ -170,3 +166,24 @@ function map(cords) {
     }
 }
 
+  // Firebase watcher + initial loader 
+  database.ref().on("child_added", function(childSnapshot) {
+
+  });
+
+    database.ref().orderByChild("timeAdded").limitToLast(3).on("child_added", function(snapshot) {
+
+        // Change the card 
+        $('#firebasecard').prepend(
+            $('<div class="col-sm-4">').append(
+                $('<div class="card">').append(
+                    $('<div class="card-body text-center">').append(
+                        $('<h4 class="card-text">').text(city),
+                        $('<h4 class="card-text">').text(state),
+                       
+                    )
+                )
+            )
+        )    
+    
+});
