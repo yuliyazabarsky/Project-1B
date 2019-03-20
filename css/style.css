@@ -41,10 +41,11 @@ h1.page-title {
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
-  z-index: 1;
+  z-index: 10;
   /* Sit on top */
   padding-top: 300px;
   /* Location of the box */
+  padding-bottom: 400px;
   left: 100;
   top: 0;
   width: 100%;
