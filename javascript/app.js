@@ -17,10 +17,17 @@ var state = "";
 
 var brewery = []
 
+//////////////////
+// function clear() {
+//     $("#cards").empty();
+// }
+///////////////////
+
 $("#runSearch").on("click", function (event) {
     event.preventDefault();
-
-
+    ///////////
+    // clear();
+    //////////
     city = $("#city-input").val().trim();
     state = $("#state-input").val().trim();
     var modal = 0;
@@ -169,3 +176,8 @@ function map(cords) {
         }
     }
 }
+// map().empty("");
+// $("#map").on("click, clear)
+///////////////////////////////////
+// $("#clearAll").on("click", clear);
+//////////////////////////////////
