@@ -1,3 +1,19 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAPBwhM5XUGWLitLBCWC-E6PxuK8EnsOkU",
+    authDomain: "project-1-e4560.firebaseapp.com",
+    databaseURL: "https://project-1-e4560.firebaseio.com",
+    projectId: "project-1-e4560",
+    storageBucket: "project-1-e4560.appspot.com",
+    messagingSenderId: "687959041368"
+  };
+  firebase.initializeApp(config);
+  
+  var database = firebase.database();
+  
+  var searchRef = database.ref("/searches");
+  
+
 var brewery = []
 
 $("#runSearch").on("click", function (event) {
@@ -76,6 +92,7 @@ $("#runSearch").on("click", function (event) {
         method: "GET"
     }).then(function (response) {
         for (var i = 0; i < response.length; i++) {
+
             // console.log(response[i]);
             if (!response[i].latitude || !response[i].longitude) {
                 i++;
@@ -92,17 +109,57 @@ $("#runSearch").on("click", function (event) {
 
 
 
+            if (response[i].latitude && response[i].longitude) {                
+                brewery.push(response[i]);
+            } 
+        }
+        map(brewery);
+        outputRows(brewery);
+    });
 
-
-
+    $("#city-input").val("");
+    $("#state-input").val("");
 
 });
 
+
 console.log(brewery);
+
+function outputRows(breweries) {
+    for (var i = 0; i < breweries.length; i++) {
+
+
+        var name = breweries[i].name;
+        var address = breweries[i].street;
+        var website = breweries[i].website_url;
+        var phoneNumber = breweries[i].phone;
+
+        $('#cards').append(
+            $('<div class="col-sm-4">').append(
+                $('<div class="card">').append(
+                    $('<div class="card-body text-center">').append(
+                        $('<h5 class="card-title">').text(name),
+                        $('<p class="card-text">').text(address),
+                        $('<a class="btn btn-primary">').text("Go to website").attr('href', website)
+                    )
+                )
+            )
+        )
+
+        // var cardContainer = $("<div>").addClass("col-sm-4");
+        // var 
+    }
+}
+
+
+
+
 
 function map(cords) {
 
     var map = L.map('map').setView([cords[1].latitude, cords[1].longitude], 10);
+
+
     mapLink =
         '<a href="http://openstreetmap.org">OpenStreetMap</a>';
     L.tileLayer(
@@ -117,46 +174,12 @@ function map(cords) {
             // console.log(cords[i].latitude);
             // console.log(cords[i].longitude);
             marker = new L.marker([cords[i].latitude, cords[i].longitude])
-                .bindPopup(cords[i].name)
+                .bindPopup(cords[i].name + "<br>" + cords[i].street)
                 .addTo(map)
         }
     }
 }
 
-// function updateResultsCards() {
-//     // no limit on results
-//     var numBreweries = $("#").val();
 
-//     console.log();
-//     console.log("------------------------------------");
 
-//     // Loop through and build elements for the defined number of articles
-//     for (var i = 0; i < numArticles; i++) {
-//       // Get specific article info for current index
-//       var article = NYTData.response.docs[i];
 
-//       // Increase the articleCount (track article # - starting at 1)
-//       var articleCount = i + 1;
-
-//       // Create the  list group to contain the articles and add the article content for each
-//       var $articleList = $("<ul>");
-//       $articleList.addClass("list-group");
-
-//       // Add the newly created element to the DOM
-//       $("#article-section").append($articleList);
-
-//       // If the article has a headline, log and append to $articleList
-//       var headline = article.headline;
-//       var $articleListItem = $("<li class='list-group-item articleHeadline'>");
-
-//       if (headline && headline.main) {
-//         console.log(headline.main);
-//         $articleListItem.append(
-//           "<span class='label label-primary'>" +
-//             articleCount +
-//             "</span>" +
-//             "<strong> " +
-//             headline.main +
-//             "</strong>"
-//         );
-//       }

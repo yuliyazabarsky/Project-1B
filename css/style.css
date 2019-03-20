@@ -5,11 +5,22 @@ body {
 }
 
 .jumbotron {
-  background: url(https://images.pexels.com/photos/274194/pexels-photo-274194.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500) center center;
+  background: url(https://images.pexels.com/photos/274194/pexels-photo-274194.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)
+   center center;
   /* background: url(https://cdn.pixabay.com/photo/2015/09/24/20/36/beer-barrel-956322_1280.jpg) center center no-repeat; */
   /* background: url(https://cdn.pixabay.com/photo/2017/06/23/17/49/beer-tap-2435408_1280.jpg) center center no-repeat; */
-  height: 350px;
-  text-align: center;
+
+  height: 350px; 
+  /* opacity: 0.8; */
+}
+
+
+h1.page-title {
+  font-size: 6em;
+  font-weight: bold;
+  padding-top: 0px;
+
+master
 
 }
 
@@ -73,3 +84,9 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+  #mug {
+    color: gold ;
+  }
+  
+
