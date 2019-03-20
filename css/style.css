@@ -9,6 +9,7 @@ body {
    center center;
   /* background: url(https://cdn.pixabay.com/photo/2015/09/24/20/36/beer-barrel-956322_1280.jpg) center center no-repeat; */
   /* background: url(https://cdn.pixabay.com/photo/2017/06/23/17/49/beer-tap-2435408_1280.jpg) center center no-repeat; */
+
   height: 350px; 
   /* opacity: 0.8; */
 }
@@ -19,25 +20,73 @@ h1.page-title {
   font-weight: bold;
   padding-top: 0px;
 
+master
 
 }
 
 .map {
-    height: 50rem;
-    
+  height: 50rem;
+
+}
+
+@media (max-width: 992px) {
+  .map {
+    height: 75%;
   }
-  
-  @media (max-width: 992px) {
-    .map {
-      height: 75%;
-    }
-  }
-  
-  .map iframe {
-    pointer-events: none;
-  }
+}
+
+.map iframe {
+  pointer-events: none;
+}
+
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 300px;
+  /* Location of the box */
+  left: 100;
+  top: 0;
+  width: 30%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
   #mug {
     color: gold ;
   }
   
+
