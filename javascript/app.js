@@ -117,7 +117,6 @@ $("#runSearch").on("click", function (event) {
 
     });
 
-    // alert("alert");
     // $("#city-input").val("");
     // $("#state-input").val("");
 
@@ -126,6 +125,7 @@ $("#runSearch").on("click", function (event) {
 $("#clearAll").on("click", function () {
     $("#city-input").val("");
     $("#state-input").val("");
+    $("#cards").empty();
 });
 
 
