@@ -32,9 +32,6 @@ $("#runSearch").on("click", function (event) {
         // alert("Please enter city name");
         // var modal = document.getElementById('myModal');
 
-        // // Get the button that opens the modal
-        // var btn = document.getElementById("myBtn");
-
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
@@ -94,19 +91,6 @@ $("#runSearch").on("click", function (event) {
         for (var i = 0; i < response.length; i++) {
 
             // console.log(response[i]);
-            if (!response[i].latitude || !response[i].longitude) {
-                i++;
-            } else {
-                brewery.push(response[i]);
-            }
-        }
-        map(brewery);
-    });
-
-
-    $("#city-input").val("");
-    $("#state-input").val("");
-
 
 
     //         if (response[i].latitude && response[i].longitude) {                
@@ -179,7 +163,4 @@ function map(cords) {
         }
     }
 }
-
-
-
 
