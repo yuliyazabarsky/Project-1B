@@ -6,14 +6,14 @@ var config = {
     projectId: "project-1-e4560",
     storageBucket: "project-1-e4560.appspot.com",
     messagingSenderId: "687959041368"
-  }; 
+};
 
-  firebase.initializeApp(config);
-  
-  var database = firebase.database();
-  
-  var city = "";
-  var state = "";
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
+var city = "";
+var state = "";
 
 
 
@@ -147,7 +147,7 @@ function outputRows(breweries) {
                         $('<h4 class="card-title">').text(name),
                         $('<h5 class="card-text">').text(address),
                         $('<h5 class="card-text">').text(phoneNumber),
-                        $('<a class="btn btn-primary">').text("Go to website").attr('href', website ).attr("target",'_blank')
+                        $('<a class="btn btn-primary">').text("Go to website").attr('href', website).attr("target", '_blank')
                     )
                 )
             )
@@ -199,13 +199,13 @@ function runMap(cords) {
 
 function removeMarkers() {
     markers.clearLayers();
-  
-  // Firebase watcher + initial loader 
-  database.ref().on("child_added", function(childSnapshot) {
+}
+    // Firebase watcher + initial loader 
+    database.ref().on("child_added", function (childSnapshot) {
 
-  });
+    });
 
-    database.ref().orderByChild("timeAdded").limitToLast(3).on("child_added", function(snapshot) {
+    database.ref().orderByChild("timeAdded").limitToLast(3).on("child_added", function (snapshot) {
 
         // Change the card 
         $('#firebasecard').prepend(
@@ -214,12 +214,12 @@ function removeMarkers() {
                     $('<div class="card-body text-center">').append(
                         $('<h4 class="card-text">').text(city),
                         $('<h4 class="card-text">').text(state),
-                       
+
                     )
                 )
             )
-        )    
-    
-});
+        )
+
+    });
 
 
