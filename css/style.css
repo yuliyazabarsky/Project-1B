@@ -82,6 +82,9 @@ h1.page-title {
   cursor: pointer;
 }
 
-#mug {
+#mug, #search {
   color: gold;
+}
+button{
+  color: grey;
 }

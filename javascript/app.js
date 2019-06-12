@@ -147,7 +147,7 @@ function outputRows(breweries) {
                         $('<h4 class="card-title">').text(name),
                         $('<h5 class="card-text">').text(address),
                         $('<h5 class="card-text">').text(phoneNumber),
-                        $('<a class="btn btn-primary">').text("Go to website").attr('href', website).attr("target", '_blank')
+                        $('<a class="btn btn-default">').text("Go to website").attr('href', website).attr("target", '_blank')
                     )
                 )
             )
